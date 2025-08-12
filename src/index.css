@@ -1,96 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
+/* Bot Pulse Hub - Tech Dashboard Design System */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Tech Theme - Light Mode */
+    --background: 250 250 98%;
+    --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Tech Yellow Primary */
+    --primary: 43 91% 55%;  /* #fbbf24 */
+    --primary-foreground: 0 0% 0%;
+    --primary-glow: 43 91% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Tech Black Secondary */
+    --secondary: 0 0% 0%;  /* #000000 */
+    --secondary-foreground: 43 91% 55%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Tech Gray Accent */
+    --accent: 217 19% 24%;  /* #1f2937 */
+    --accent-foreground: 43 91% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Status Colors - Tech Style */
+    --success: 158 64% 52%;  /* #10b981 */
+    --warning: 43 91% 55%;   /* Same as primary */
+    --error: 0 84% 60%;      /* #ef4444 */
+    --info: 188 85% 43%;     /* #06b6d4 */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Platform Colors */
+    --telegram: 207 100% 40%;  /* #0088cc */
+    --twitter: 206 82% 55%;    /* #1da1f2 */
+    --whatsapp: 142 70% 49%;   /* #25d366 */
 
-    --radius: 0.5rem;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --sidebar-background: 0 0% 98%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 43 91% 55%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --radius: 0.75rem;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Tech Gradients */
+    --gradient-tech: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(217 19% 24%) 50%, hsl(43 91% 55%) 100%);
+    --gradient-yellow: linear-gradient(135deg, hsl(43 91% 55%) 0%, hsl(38 92% 50%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(217 33% 18%) 100%);
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Tech Shadows */
+    --shadow-tech: 0 10px 30px -10px hsl(43 91% 55% / 0.2);
+    --shadow-glow: 0 0 20px hsl(43 91% 55% / 0.3);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.1);
 
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Tech Theme - Dark Mode */
+    --background: 0 0% 0%;  /* Pure black */
+    --foreground: 43 91% 55%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 217 33% 11%;  /* #111827 */
+    --card-foreground: 43 91% 55%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 43 91% 55%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Tech Yellow Primary (same in dark) */
+    --primary: 43 91% 55%;
+    --primary-foreground: 0 0% 0%;
+    --primary-glow: 43 91% 65%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Tech Black Secondary -> Light in dark mode */
+    --secondary: 0 0% 98%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Tech Gray Accent - Darker */
+    --accent: 217 19% 24%;
+    --accent-foreground: 43 91% 55%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --muted: 217 19% 24%;
+    --muted-foreground: 240 5% 64%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --border: 217 19% 24%;
+    --input: 217 19% 24%;
+    --ring: 43 91% 55%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Tech Shadows - Dark Mode */
+    --shadow-tech: 0 10px 30px -10px hsl(43 91% 55% / 0.4);
+    --shadow-glow: 0 0 30px hsl(43 91% 55% / 0.5);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  /* Tech Card Styles */
+  .tech-card {
+    @apply bg-card border border-primary/20 rounded-lg shadow-lg backdrop-blur-sm;
+    @apply transition-all duration-300 hover:shadow-xl hover:border-primary/40;
+    @apply hover:translate-y-[-2px];
+  }
+
+  .tech-card-glow {
+    @apply tech-card;
+    box-shadow: 0 4px 20px hsl(var(--primary) / 0.1), 0 0 40px hsl(var(--primary) / 0.05);
+  }
+
+  .tech-card-glow:hover {
+    box-shadow: 0 8px 30px hsl(var(--primary) / 0.2), 0 0 60px hsl(var(--primary) / 0.1);
+  }
+
+  /* Tech Button Styles */
+  .btn-tech {
+    @apply bg-primary text-primary-foreground rounded-lg px-4 py-2 font-medium;
+    @apply transition-all duration-300 hover:bg-primary/90 hover:shadow-lg;
+    @apply border border-primary/20 hover:border-primary/40;
+  }
+
+  .btn-tech-outline {
+    @apply border-2 border-primary text-primary bg-transparent rounded-lg px-4 py-2 font-medium;
+    @apply transition-all duration-300 hover:bg-primary hover:text-primary-foreground;
+  }
+
+  /* Tech Status Indicators */
+  .status-online {
+    @apply text-success border-success/30 bg-success/10;
+  }
+
+  .status-warning {
+    @apply text-warning border-warning/30 bg-warning/10;
+  }
+
+  .status-error {
+    @apply text-error border-error/30 bg-error/10;
+  }
+
+  .status-info {
+    @apply text-info border-info/30 bg-info/10;
+  }
+
+  /* Platform Colors */
+  .platform-telegram {
+    @apply text-[hsl(var(--telegram))] border-[hsl(var(--telegram))]/30 bg-[hsl(var(--telegram))]/10;
+  }
+
+  .platform-twitter {
+    @apply text-[hsl(var(--twitter))] border-[hsl(var(--twitter))]/30 bg-[hsl(var(--twitter))]/10;
+  }
+
+  .platform-whatsapp {
+    @apply text-[hsl(var(--whatsapp))] border-[hsl(var(--whatsapp))]/30 bg-[hsl(var(--whatsapp))]/10;
+  }
+
+  /* Tech Animations */
+  .pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+
+  /* Scroll Styles */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-muted/20;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
   }
 }
 
